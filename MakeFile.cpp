@@ -2,69 +2,75 @@
 #include <fstream>
 #include <string>
 using namespace std;
-int main()
-{
-	//Start menu
-	cout << "Hello" << endl;
-	cout << "Enter filename and choose what filetype to create" << endl;
-	
-	cout << "1 - C++ project" << endl;
-	cout << "2 - C# file" << endl;
-	cout << "3 - Java project" << endl;
-	cout << "4 - HTML file" << endl;
 
-	//Enter choices
-	int choice;
-	string name;
-	cin >> name;
-	cin >> choice;
+int main() {
+// Start menu
+cout << "Hello" << endl;
+cout << "Enter filename and choose what filetype to create" << endl;
+cout << "1 - C++ project" << endl;
+cout << "2 - C# file" << endl;
+cout << "3 - Java project" << endl;
+cout << "4 - HTML file" << endl;
 
-	//user naming the fille
-	ofstream Workfile;
-	Workfile.open(name.c_str());
+// Enter choices
+int choice;
+string name;
+cin >> name;
+cin >> choice;
 
+// User naming the file
+ofstream workFile;
 
-	// TODO fix this
-	cout << "Enter file dir" << endl;
-	string dir;
-	cin >> dir;
-	ofstream workfile(dir + name);
+//get directory
+cout << "Enter file directory: ";
+string dir;
+cin >> dir;
 
+switch (choice) {
+ case 1:
+   workFile.open(dir + name + ".cpp");
+   workFile << "#include <iostream>" << endl;
+   workFile << "using namespace std;" << endl;
+   workFile << "int main() {" << endl;
+   workFile << " cout << \"\" << endl;" << endl;
+   workFile << " return 0;" << endl;
+   workFile << "}" << endl;
+   workFile.close();
+   break;
 
-	//c++ if
-	 
-	if (choice == 1)
-	{
-		//TODO fix file extension
-		workfile.open(name + ".cpp");
+ case 2:
+   workFile.open(dir + name + ".cs");
+   workFile << "using System;" << endl;
+   workFile << "class Program {" << endl;
+   workFile << " static void Main(string[] args) {" << endl;
+   workFile << " Console.WriteLine(\"\");" << endl;
+   workFile << " }" << endl;
+   workFile << "}" << endl;
+   workFile.close();
+   break;
 
+ case 3:
+   workFile.open(dir + name + ".java");
+   workFile << "public class Main {" << endl;
+   workFile << " public static void main(String[] args) {" << endl;
+   workFile << " System.out.println(\"\");" << endl;
+   workFile << " }" << endl;
+   workFile << "}" << endl;
+   workFile.close();
+   break;
 
-		workfile << "#include <iostream>" << endl;
-		workfile << "using namespace std;" << endl;
-		workfile << "int main();" << endl;
-		workfile << '{' << endl;
-		workfile << "return 0;" << endl;
-		workfile << '}';
-		workfile.close();
-	}
-
-
-	//c# if
-	if (choice == 2)
-	{
-		cout << choice;
-	}
-
-	//java if
-	if (choice == 3)
-	{
-		cout << choice;
-	}
-
-	//html if
-	if (choice == 4)
-	{
-		cout << choice;
-	}
+ case 4:
+	workFile.open(dir + name + ".html");
+	workFile << "<!DOCTYPE html>" << endl;
+	workFile << "<html>" << endl;
+	workFile << "<head>" << endl;
+	workFile << " <title>Hello World</title>" << endl;
+	workFile << "</head>" << endl;
+	workFile << "<body>" << endl;
+	workFile << " <h1>Hello World</h1>" << endl;
+	workFile << "</body>" << endl;
+	workFile << "</html>" << endl;
+	workFile.close();
 }
-
+return 0;
+}
