@@ -12,7 +12,10 @@ int main() {
   cout << "3 - Java project" << endl;
   cout << "4 - HTML file" << endl;
   cout << "5 - Kotlin file" << endl;
-
+  cout << "6 - PHP file" << endl;
+	
+	
+	
   // Enter choices
   int choice;
   string name;
